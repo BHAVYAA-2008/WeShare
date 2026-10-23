@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#147d53"><title>WeShare — Share Together, Grow Together</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="loginGate" class="gate">
+  <form id="loginForm" class="login-card">
+    <div class="logo">W</div><p class="eyebrow">SHARE TOGETHER. GROW TOGETHER.</p>
+    <h1>Welcome to WeShare</h1><p>Sign in to open your private testing version.</p>
+    <label>Your name<input id="loginName" required maxlength="60" autocomplete="name" placeholder="Enter your name"></label>
+    <label>Phone number<input id="loginPhone" required type="tel" minlength="10" maxlength="15" autocomplete="tel" placeholder="Enter your phone number"></label>
+    <label>App language<select id="loginLanguage"><option value="en">English</option><option value="ta">தமிழ்</option><option value="hi">हिन्दी</option><option value="te">తెలుగు</option><option value="kn">ಕನ್ನಡ</option><option value="ml">മലയാളം</option><option value="bn">বাংলা</option><option value="es">Español</option><option value="fr">Français</option></select></label>
+    <button class="primary wide">Sign in to WeShare</button>
+    <small>Prototype sign-in only. No OTP is sent and the phone number is not verified.</small>
+  </form>
+</div>
+<div id="app" class="hidden">
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">W</span><span>WeShare<small>Share Together. Grow Together.</small></span></a>
+  <div class="head-right"><select id="languageSelect" aria-label="Language"><option value="en">English</option><option value="ta">தமிழ்</option><option value="hi">हिन्दी</option><option value="te">తెలుగు</option><option value="kn">ಕನ್ನಡ</option><option value="ml">മലയാളം</option><option value="bn">বাংলা</option><option value="es">Español</option><option value="fr">Français</option></select><button id="profileButton" class="outline"></button></div>
+</header>
+<main>
+<section class="hero"><div><p class="eyebrow">COMMUNITY SHARING</p><h1 id="heroTitle">Share what you have.<br>Borrow what you need.</h1><p id="heroText">Find useful things from people around you, safely and simply.</p><div class="actions"><button class="primary" data-go="browse">Browse items</button><button class="secondary" data-go="share">Share an item</button></div></div><div class="hero-art">🤝<span>♻️</span><b>Community first</b></div></section>
+<section class="safety"><span>🛡️</span><div><b>Share safely</b><p>Exact addresses and contact details stay hidden until a request is accepted in this demo.</p></div></section>
+<nav class="tabs"><button class="tab active" data-tab="browse">Browse items</button><button class="tab" data-tab="share">Share an item</button><button class="tab" data-tab="requests">My requests</button><button class="tab" data-tab="community">Community help</button><button class="tab" data-tab="assistant">🎙 Voice & AI</button></nav>
+<section id="browse" class="view active">
+  <div class="section-head"><div><p class="eyebrow">NEAR YOUR COMMUNITY</p><h2>Available to share</h2></div><span class="pill" id="itemCount">3 items</span></div>
+  <div class="searchrow"><input id="searchInput" placeholder="Search items (e.g. drill, books)"><select id="categoryFilter"><option value="all">All categories</option><option>Home</option><option>Tools</option><option>Books</option><option>Garden</option><option>Kitchen</option><option>Other</option></select></div>
+  <div id="itemsGrid" class="grid"></div><p id="emptyItems" class="empty hidden">No items found. Try another search.</p>
+</section>
+<section id="share" class="view"><div class="section-head"><div><p class="eyebrow">GIVE SOMETHING A SECOND LIFE</p><h2>Share an item</h2></div></div>
+<form id="shareForm" class="panel formgrid"><label>Item name *<input name="name" required placeholder="e.g. Ladder"></label><label>Category<select name="category"><option>Home</option><option>Tools</option><option>Books</option><option>Garden</option><option>Kitchen</option><option>Other</option></select></label><label>Sharing type<select name="mode"><option>Free</option><option>Borrow & return</option><option>Rent</option></select></label><label>Price (₹, if any)<input name="price" type="number" min="0" value="0"></label><label>General area *<input name="area" required placeholder="e.g. Near bus stand"></label><label>Available from<input name="available" type="date"></label><label class="full">Description<textarea name="description" rows="3" placeholder="Condition or usage instructions"></textarea></label><button class="primary">Publish item</button></form>
+</section>
+<section id="requests" class="view"><div class="section-head"><div><p class="eyebrow">TRACK YOUR REQUESTS</p><h2>My requests</h2><p class="muted">Contact details appear only after the owner accepts.</p></div></div><div id="myRequestsList" class="stack"></div><p id="noRequests" class="empty">No requests yet. Browse items and request one.</p></section>
+<section id="community" class="view"><div class="section-head"><div><p class="eyebrow">HELP EACH OTHER</p><h2>Community help</h2></div></div><form id="helpForm" class="panel formgrid"><label>I want to<select name="kind"><option>Ask for help</option><option>Offer help</option></select></label><label>General area<input name="area" required placeholder="e.g. Near bus stand"></label><label class="full">Details<textarea name="details" required rows="3" placeholder="What help is needed?"></textarea></label><button class="primary">Post help request</button></form><div id="helpList" class="stack"></div></section>
+<section id="assistant" class="view"><div class="section-head"><div><p class="eyebrow">ACCESSIBLE SHARING</p><h2>Voice & AI helper</h2><p class="muted">Speak or type what you need. The demo helper can guide you to post a request.</p></div></div>
+<div class="panel assistant"><div class="assistant-icon">🎙️</div><label>Choose speaking language<select id="voiceLanguage"><option value="en-US">English</option><option value="ta-IN">தமிழ்</option><option value="hi-IN">हिन्दी</option><option value="te-IN">తెలుగు</option><option value="kn-IN">ಕನ್ನಡ</option><option value="ml-IN">മലയാളം</option><option value="bn-IN">বাংলা</option><option value="es-ES">Español</option><option value="fr-FR">Français</option></select></label>
+<div class="actions"><button id="startVoice" class="primary" type="button">🎤 Speak now</button><button id="readReply" class="outline" type="button">🔊 Read reply aloud</button></div>
+<label>What do you need?<textarea id="aiInput" rows="3" placeholder="Example: I need a ladder for one day"></textarea></label><div class="actions"><button id="askAI" class="primary" type="button">Ask WeShare helper</button><button id="clearAI" class="outline" type="button">Clear</button></div>
+<div id="aiReply" class="reply">Hi! Tell me what item you need, how long you need it, and your general area. I can help you prepare a request.</div><button id="useAIRequest" class="secondary" type="button">Use this as a request</button><small>Voice input depends on browser and language support. This is a rule-based demo assistant, not a connected AI service.</small></div>
+</section>
+<section class="impact"><div><b id="sharedCount">3</b><span>Items listed</span></div><div><b>Community</b><span>Sharing starts with trust</span></div><div><b id="requestCount">0</b><span>Your requests</span></div></section>
+</main><footer>WeShare · Community sharing prototype · Be kind. Share safely.</footer>
+<dialog id="requestDialog"><form id="requestForm" class="dialog-card"><button type="button" class="x" data-close="requestDialog">×</button><p class="eyebrow">REQUEST ITEM</p><h2 id="requestTitle">Request item</h2><input type="hidden" name="itemId"><label>Pickup date *<input name="pickup" type="date" required></label><label>Return date *<input name="returnDate" type="date" required></label><label>Message to owner<textarea name="message" rows="2" placeholder="What do you need it for?"></textarea></label><button class="primary wide">Send request</button></form></dialog>
+<dialog id="profileDialog"><form id="profileForm" class="dialog-card"><button type="button" class="x" data-close="profileDialog">×</button><h2>Your profile</h2><label>Name<input name="name" required></label><label>Phone number<input name="phone" type="tel" required minlength="10"></label><button class="primary wide">Save profile</button><button id="signOut" type="button" class="outline wide">Sign out</button><small>Demo profile is stored only in this browser.</small></form></dialog>
+<div id="toast" class="toast"></div>
+</div><script src="script.js"></script></body></html>
